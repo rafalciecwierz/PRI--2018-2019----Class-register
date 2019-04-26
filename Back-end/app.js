@@ -7,9 +7,10 @@ app.use(bodyparser.json());
 
 // Stworzenie połączenia
 const db = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    database : 'harmonia',
+    host     : 's7.mydevil.net',
+    user	 : 'm1493_edzharmon',
+    password : 'EdziennikH@rm0n!@',
+    database : 'm1493_edzharmon',
     multipleStatements: true
 });
 
