@@ -1,0 +1,25 @@
+<div class="row aligner">
+    <div class="aligner-item col-sm-8">
+      <h2>Zaloguj się do systemu</h2>
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" id="email" formControlName="email">
+          <span class="help-block" *ngIf="!signInForm.get('email').valid && signInForm.get('email').touched"> Please
+            enter a valid email!</span>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" id="password" class="form-control" id="pwd" formControlName="password">
+          <span class="help-block" *ngIf="!signInForm.get('password').valid && signInForm.get('password').touched">
+            Please enter a valid password (8 characters long)!</span>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-success btn-block" *ngIf="signInForm.valid">Submit</button>
+      </form>
+      <br>
+      <div class="alert alert-danger" *ngIf="errorMsg">
+        <strong>Warning!</strong> {{ errorMsg}}
+      </div>
+    </div>
+  </div>

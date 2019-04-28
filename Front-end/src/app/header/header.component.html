@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top ">
+<a routerLinkActive="active" routerLink="" class="navbar-brand">
+  <img src="http://eduharmonia.pl/wp-content/themes/eduharmonia/images/logo.png" height="30px;" alt="HarmoniaBrand" class="align-top">
+  E-Hamornia
+</a>
+<button type="button" class="navbar-toggler" data-toggle="collapse" (click)="toggleNavbar()">
+  X
+</button>
+<div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navbarOpen }">
+  <ul class="navbar-nav">
+    <li class="nav-item" routerLinkActive="active" routerLink="/login">
+        <a class="nav-item navlink btn btn-outline-success">Zaloguj się!</a>
+    </li>
+  </ul>
+</div>
+</nav>
