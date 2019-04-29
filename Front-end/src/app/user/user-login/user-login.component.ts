@@ -23,7 +23,7 @@ export class UserLoginComponent implements OnInit {
   }
   onSubmit(){
     if(this.signInForm.value.password=="sekretnehaslo"){
-      this.router.navigate(['']);
+      this.router.navigate(['main']);
     }
     else{
       this.errorMsg = "Podałeś złe hasło!";
