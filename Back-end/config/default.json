@@ -1,0 +1,9 @@
+{
+    "dbConfig": {
+        "host"      : "s7.mydevil.net",
+        "user"	    : "m1493_edzharmon",
+        "password"  : "",
+        "database"  : "m1493_edzharmon",
+        "multipleStatements": true
+    }
+}

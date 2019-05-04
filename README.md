@@ -14,6 +14,7 @@ Front-end:
 
 Back-end 
 - npm i
-- nodemon 
+- export db_password='typeyourpasswordhere'
+- nodemon (install it first) or node app.js
 
 #1st milestone

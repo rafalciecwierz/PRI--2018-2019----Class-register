@@ -1,3 +1,5 @@
+// Config module for keeping private variables safe
+const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
@@ -5,14 +7,14 @@ const bodyparser = require('body-parser');
 const app = express();
 app.use(bodyparser.json());
 
+//Checking if dbConfig is set
+if(!config.get('dbConfig.password')){
+    console.error('FATAL ERROR: db_password is not defined');
+    process.exit(1);
+}
+
 // Stworzenie połączenia
-const db = mysql.createConnection({
-    host     : 's7.mydevil.net',
-    user	 : 'm1493_edzharmon',
-    password : 'EdziennikH@rm0n!@',
-    database : 'm1493_edzharmon',
-    multipleStatements: true
-});
+const db = mysql.createConnection(config.get('dbConfig'));
 
 // Połączenie
 db.connect((err) => {
