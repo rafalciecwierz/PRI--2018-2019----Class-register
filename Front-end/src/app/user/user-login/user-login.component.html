@@ -3,10 +3,10 @@
       <h2>Zaloguj się do systemu</h2>
       <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" class="form-control" id="email" formControlName="email">
-          <span class="help-block" *ngIf="!signInForm.get('email').valid && signInForm.get('email').touched"> Please
-            enter a valid email!</span>
+          <label for="login">Login:</label>
+          <input type="text" id="login" class="form-control" id="login" formControlName="login">
+          <span class="help-block" *ngIf="!signInForm.get('login').valid && signInForm.get('login').touched"> Please
+            enter a valid login!</span>
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>

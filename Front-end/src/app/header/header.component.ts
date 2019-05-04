@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserSessionService } from '../services/user-session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,9 @@ export class HeaderComponent implements OnInit {
 
   navbarOpen: boolean = false;
 
-  constructor() { }
+  constructor(
+    private auth: UserSessionService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,5 +21,16 @@ export class HeaderComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+  getRole(){
+    return this.auth.getRole();
+  }
 
+  isAuthenticated(){
+    return this.auth.isAuthenticated();
+  }
+
+  onLogOut(){
+    this.auth.resetSession();
+    this.router.navigate(['']);
+  }
 }
