@@ -3,6 +3,8 @@ const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
+var generator = require('generate-password');
+
 
 const app = express();
 app.use(bodyparser.json());
@@ -46,6 +48,14 @@ app.post('/zajecia', dodajZajecia);
 const {wyswietlKlasyZajecia, dodajKlaseZajecia} = require('./routes/klasyzajecia');
 app.get('/klasy_zajecia', wyswietlKlasyZajecia);
 app.post('/klasy_zajecia', dodajKlaseZajecia);
+
+const {wyswietlNauczycieli, dodajNauczyciela} = require('./routes/nauczyciele');
+app.get('/nauczyciele', wyswietlNauczycieli);
+app.post('/nauczyciele', dodajNauczyciela);
+
+const {wyswietlRodzicow, dodajRodzica} = require('./routes/rodzice');
+app.get('/rodzice', wyswietlRodzicow);
+app.post('/rodzice', dodajRodzica);
 
 //Nasłuchiwanie
 
