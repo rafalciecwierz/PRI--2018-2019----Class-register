@@ -3,7 +3,7 @@ const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
-var generator = require('generate-password');
+const generator = require('generate-password');
 
 
 const app = express();
@@ -56,6 +56,9 @@ app.post('/nauczyciele', dodajNauczyciela);
 const {wyswietlRodzicow, dodajRodzica} = require('./routes/rodzice');
 app.get('/rodzice', wyswietlRodzicow);
 app.post('/rodzice', dodajRodzica);
+
+const {logowanie} = require('./routes/logowanie');
+app.post('/logowanie',logowanie);
 
 //Nasłuchiwanie
 
