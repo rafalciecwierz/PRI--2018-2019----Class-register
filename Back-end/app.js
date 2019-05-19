@@ -1,4 +1,5 @@
 // Config module for keeping private variables safe
+var session = require('express-session');
 const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
@@ -56,6 +57,10 @@ app.post('/nauczyciele', dodajNauczyciela);
 const {wyswietlRodzicow, dodajRodzica} = require('./routes/rodzice');
 app.get('/rodzice', wyswietlRodzicow);
 app.post('/rodzice', dodajRodzica);
+
+const {wyswietlRozmowcow, dodajRozmowce} = require('./routes/rozmowcy');
+app.get('/rozmowcy', wyswietlRozmowcow);
+app.post('/rozmowcy', dodajRozmowce);
 
 const {logowanie} = require('./routes/logowanie');
 app.post('/logowanie',logowanie);
