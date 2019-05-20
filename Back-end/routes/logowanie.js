@@ -1,4 +1,5 @@
 const md5 = require("blueimp-md5")
+const config = require('config')
 const jwt = require('jsonwebtoken')
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
             let query = db.query(sql,[LOGIN,md5(PASSWORD)], (err, rows, fields) => {
                 if (rows.length == 1) {
                     var payload = rows[0];
-                    const token = jwt.sign({payload},'privateKey');
+                    const token = jwt.sign({payload},config.get('jwtPrivateKey'));
                     res.send(token);
 				} 
                 else {

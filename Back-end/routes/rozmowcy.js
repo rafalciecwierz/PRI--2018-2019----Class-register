@@ -1,5 +1,5 @@
-var generator = require('generate-password');
-var md5 = require("blueimp-md5")
+const generator = require('generate-password');
+const md5 = require("blueimp-md5")
 
 module.exports = {
     wyswietlRozmowcow: (req, res) => {

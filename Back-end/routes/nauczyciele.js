@@ -1,5 +1,3 @@
-var generator = require('generate-password');
-
 module.exports = {
     wyswietlNauczycieli: (req, res) => {
                 let sql = 'SELECT * FROM nauczyciele';

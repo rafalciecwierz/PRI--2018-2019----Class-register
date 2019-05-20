@@ -1,5 +1,4 @@
 // Config module for keeping private variables safe
-var session = require('express-session');
 const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
@@ -12,6 +11,11 @@ app.use(bodyparser.json());
 
 //Checking if dbConfig is set
 if(!config.get('dbConfig.password')){
+    console.error('FATAL ERROR: db_password is not defined');
+    process.exit(1);
+}
+
+if(!config.get('jwtPrivateKey')){
     console.error('FATAL ERROR: db_password is not defined');
     process.exit(1);
 }

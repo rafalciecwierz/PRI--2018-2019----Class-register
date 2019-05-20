@@ -5,5 +5,7 @@
         "password"  : "",
         "database"  : "m1493_edzharmon",
         "multipleStatements": true
-    }
+    },
+
+    "jwtPrivateKey": ""   
 }
