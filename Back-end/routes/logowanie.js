@@ -7,12 +7,12 @@ module.exports = {
         var LOGIN = req.body.LOGIN;
         var PASSWORD = req.body.PASSWORD;
         if (LOGIN && PASSWORD) {
-            let sql = 'SELECT typ, id_typu, imie, nazwisko FROM rozmowcy WHERE LOGIN = ? AND HASLO = ?';
+            let sql = 'SELECT typ, id_typu, imie, nazwisko, login, haslo FROM rozmowcy WHERE LOGIN = ? AND HASLO = ?';
             let query = db.query(sql,[LOGIN,md5(PASSWORD)], (err, rows, fields) => {
                 if (rows.length == 1) {
                     var payload = rows[0];
                     const token = jwt.sign({payload},config.get('jwtPrivateKey'));
-                    res.send(token);
+                    res.header('x-auth-token', token).send(token);
 				} 
                 else {
                     res.send('Error - zły login lub hasło!');

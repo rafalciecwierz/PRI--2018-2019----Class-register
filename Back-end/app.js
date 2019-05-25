@@ -1,4 +1,5 @@
 // Config module for keeping private variables safe
+const auth = require('./middleware/auth')
 const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
@@ -35,36 +36,36 @@ global.db = db;
 
 // Wywołanie modułów
 const {wyswietlUczniow, dodajUcznia} = require('./routes/uczniowie');
-app.get('/uczniowie', wyswietlUczniow);
-app.post('/uczniowie', dodajUcznia);
+app.get('/uczniowie', auth, wyswietlUczniow);
+app.post('/uczniowie', auth, dodajUcznia);
 
 const {wyswietlKlasy, dodajKlase} = require('./routes/klasy');
-app.get('/klasy', wyswietlKlasy);
-app.post('/klasy', dodajKlase);
+app.get('/klasy', auth, wyswietlKlasy);
+app.post('/klasy', auth, dodajKlase);
 
 const {wyswietlPrzedmioty, dodajPrzedmiot} = require('./routes/przedmioty');
-app.get('/przedmioty', wyswietlPrzedmioty);
-app.post('/przedmioty', dodajPrzedmiot);
+app.get('/przedmioty', auth, wyswietlPrzedmioty);
+app.post('/przedmioty', auth, dodajPrzedmiot);
 
 const {wyswietlZajecia, dodajZajecia} = require('./routes/zajecia');
-app.get('/zajecia', wyswietlZajecia);
-app.post('/zajecia', dodajZajecia);
+app.get('/zajecia', auth, wyswietlZajecia);
+app.post('/zajecia', auth, dodajZajecia);
 
 const {wyswietlKlasyZajecia, dodajKlaseZajecia} = require('./routes/klasyzajecia');
-app.get('/klasy_zajecia', wyswietlKlasyZajecia);
-app.post('/klasy_zajecia', dodajKlaseZajecia);
+app.get('/klasy_zajecia', auth, wyswietlKlasyZajecia);
+app.post('/klasy_zajecia', auth, dodajKlaseZajecia);
 
 const {wyswietlNauczycieli, dodajNauczyciela} = require('./routes/nauczyciele');
-app.get('/nauczyciele', wyswietlNauczycieli);
-app.post('/nauczyciele', dodajNauczyciela);
+app.get('/nauczyciele', auth, wyswietlNauczycieli);
+app.post('/nauczyciele', auth, dodajNauczyciela);
 
 const {wyswietlRodzicow, dodajRodzica} = require('./routes/rodzice');
-app.get('/rodzice', wyswietlRodzicow);
-app.post('/rodzice', dodajRodzica);
+app.get('/rodzice', auth, wyswietlRodzicow);
+app.post('/rodzice', auth, dodajRodzica);
 
 const {wyswietlRozmowcow, dodajRozmowce} = require('./routes/rozmowcy');
-app.get('/rozmowcy', wyswietlRozmowcow);
-app.post('/rozmowcy', dodajRozmowce);
+app.get('/rozmowcy', auth, wyswietlRozmowcow);
+app.post('/rozmowcy', auth, dodajRozmowce);
 
 const {logowanie} = require('./routes/logowanie');
 app.post('/logowanie',logowanie);
