@@ -15,6 +15,7 @@ Front-end:
 Back-end 
 - npm i
 - export db_password='typeyourpasswordhere'
+- u need to setup you own jwtPrivateKey i default.json
 - nodemon (install it first) or node app.js
 
 #1st milestone
