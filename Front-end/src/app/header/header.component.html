@@ -16,19 +16,19 @@
         </li>
       </ng-template>
       <!-- Parent Section -->
-      <ng-template [ngIf]="getRole()=='parent'">
+      <ng-template [ngIf]="getRole()=='r'">
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a class="nav-link">Panel Rodzica</a>
         </li>
       </ng-template>
       <!-- Teacher Section -->
-      <ng-template [ngIf]="getRole()=='teacher'">
+      <ng-template [ngIf]="getRole()=='n'">
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a class="nav-link">Panel Nauczyciela</a>
         </li>
       </ng-template>
       <!-- Secretary Section -->
-      <ng-template [ngIf]="getRole()=='secretary'">
+      <ng-template [ngIf]="getRole()=='s'">
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a class="nav-link">Panel Sekretarki</a>
         </li>

@@ -18,7 +18,7 @@ if(!config.get('dbConfig.password')){
 }
 
 if(!config.get('jwtPrivateKey')){
-    console.error('FATAL ERROR: db_password is not defined');
+    console.error('FATAL ERROR: jwtPrivateKey is not defined');
     process.exit(1);
 }
 

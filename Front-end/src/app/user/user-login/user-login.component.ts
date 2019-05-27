@@ -26,25 +26,21 @@ export class UserLoginComponent implements OnInit {
     });
   }
   onSubmit(){
-    if(this.signInForm.value.password=="nauczyciel"){
-      this.router.navigate(['main']);
-      this.auth.setSession('1234','teacher','joe');
-    }
-    else if(this.signInForm.value.password=="rodzic"){
-      this.router.navigate(['main']);
-      this.auth.setSession('1234','parent','joe');
-    }
-    else if(this.signInForm.value.password=="sekretarka"){
-      this.router.navigate(['main']);
-      this.auth.setSession('1234','secretary','joe');
-    }
-    else if(this.signInForm.value.password=="admin"){
-      this.router.navigate(['main']);
-      this.auth.setSession('1234','admin','joe');
-    }
-    else{
-      this.errorMsg = "Podałeś złe hasło!";
-    }
+    this.loginUser = new Object({
+      'LOGIN': this.signInForm.value.login,
+      'PASSWORD': this.signInForm.value.password
+    });
+
+    this.auth.logIn(this.loginUser).subscribe(
+      (tk: string) => {
+        this.auth.setSession(tk,tk,tk);
+        this.router.navigate(['']);
+      },
+      (error) =>  {
+        this.errorMsg = error.text;
+      }
+    );
+    
   }
 
 }
