@@ -12,12 +12,12 @@ module.exports = {
                 if (rows.length == 1) {
                     var payload = rows[0];
                     const token = jwt.sign({payload},config.get('jwtPrivateKey'));
-                    res.header('x-auth-token', token).send(token);
+                    res.header('x-auth-token', token).header('role', rows[0].typ).send(JSON.stringify({ 'token': token, 'role': rows[0].typ }));
 				} 
                 else {
                     res.send('Error - zły login lub hasło!');
 				}
-			});
+            });
         } 
         else {
             res.send('Podaj login i hasło!');
