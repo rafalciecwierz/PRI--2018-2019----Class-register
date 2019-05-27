@@ -1,5 +1,6 @@
 // Config module for keeping private variables safe
 const auth = require('./middleware/auth')
+const auth_sekr = require('./middleware/auth_sekr')
 const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
