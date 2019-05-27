@@ -37,15 +37,15 @@ global.db = db;
 // Wywołanie modułów
 const {wyswietlUczniow, dodajUcznia} = require('./routes/uczniowie');
 app.get('/uczniowie', auth, wyswietlUczniow);
-app.post('/uczniowie', auth, dodajUcznia);
+app.post('/uczniowie', [auth,auth_sekr], dodajUcznia);
 
 const {wyswietlKlasy, dodajKlase} = require('./routes/klasy');
 app.get('/klasy', auth, wyswietlKlasy);
-app.post('/klasy', auth, dodajKlase);
+app.post('/klasy', [auth,auth_sekr], dodajKlase);
 
 const {wyswietlPrzedmioty, dodajPrzedmiot} = require('./routes/przedmioty');
 app.get('/przedmioty', auth, wyswietlPrzedmioty);
-app.post('/przedmioty', auth, dodajPrzedmiot);
+app.post('/przedmioty', [auth,auth_sekr], dodajPrzedmiot);
 
 const {wyswietlZajecia, dodajZajecia} = require('./routes/zajecia');
 app.get('/zajecia', auth, wyswietlZajecia);
@@ -57,15 +57,15 @@ app.post('/klasy_zajecia', auth, dodajKlaseZajecia);
 
 const {wyswietlNauczycieli, dodajNauczyciela} = require('./routes/nauczyciele');
 app.get('/nauczyciele', auth, wyswietlNauczycieli);
-app.post('/nauczyciele', auth, dodajNauczyciela);
+app.post('/nauczyciele', [auth,auth_sekr], dodajNauczyciela);
 
 const {wyswietlRodzicow, dodajRodzica} = require('./routes/rodzice');
 app.get('/rodzice', auth, wyswietlRodzicow);
-app.post('/rodzice', auth, dodajRodzica);
+app.post('/rodzice', [auth,auth_sekr], dodajRodzica);
 
 const {wyswietlRozmowcow, dodajRozmowce} = require('./routes/rozmowcy');
 app.get('/rozmowcy', auth, wyswietlRozmowcow);
-app.post('/rozmowcy', auth, dodajRozmowce);
+app.post('/rozmowcy', [auth,auth_sekr], dodajRozmowce);
 
 const {logowanie} = require('./routes/logowanie');
 app.post('/logowanie',logowanie);
