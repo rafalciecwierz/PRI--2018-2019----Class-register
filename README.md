@@ -11,7 +11,7 @@ Bartłomiej Gałązka
 Front-end:
 - ```nmp install```
 - ```npm rebuild node-sass``` (if you use windows)
-- To start ```npm start```
+- To start app: ```npm start```
 
 Back-end 
 - npm install
