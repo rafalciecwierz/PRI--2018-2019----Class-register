@@ -9,11 +9,12 @@ Bartłomiej Gałązka
 # How to run the project:
 
 Front-end:
-- nmp i
-- ng serve
+- ```nmp install```
+- ```npm rebuild node-sass``` (if you use windows
+- To start ```npm start```
 
 Back-end 
-- npm i
+- npm install
 - export db_password='typeyourpasswordhere'
 - u need to setup you own jwtPrivateKey i default.json
 - nodemon (install it first) or node app.js
