@@ -10,7 +10,7 @@ Bartłomiej Gałązka
 
 Front-end:
 - ```nmp install```
-- ```npm rebuild node-sass``` (if you use windows
+- ```npm rebuild node-sass``` (if you use windows)
 - To start ```npm start```
 
 Back-end 
