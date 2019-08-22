@@ -10,7 +10,12 @@ export class UserSessionService {
     role: string = null;
     username: string = null;
 
+
     constructor(private httpClient: HttpClient) { }
+
+    getName(){
+        return this.username;
+    }
 
     getRole() {
         return this.role;
@@ -31,8 +36,9 @@ export class UserSessionService {
         this.username = null;
     }
 
+
     logIn(body) {
-        return this.httpClient.post<string>('http://127.0.0.1:3000/logowanie', body)
+        return this.httpClient.post('http://127.0.0.1:3000/logowanie', body)
             .pipe(
                 catchError(this.handleError)
             );

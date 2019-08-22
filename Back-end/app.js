@@ -5,10 +5,14 @@ const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
+var cors = require('cors');
+
 const generator = require('generate-password');
 
 
 const app = express();
+app.use(cors());
+
 app.use(bodyparser.json());
 
 //Checking if dbConfig is set

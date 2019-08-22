@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   navbarOpen: boolean = false;
+  username: string = "";
 
   constructor(
     private auth: UserSessionService,
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
   getRole(){
+    this.username = this.auth.getName();
     return this.auth.getRole();
   }
 

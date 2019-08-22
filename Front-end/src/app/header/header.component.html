@@ -38,6 +38,9 @@
   <div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav">
       <ng-template [ngIf]="isAuthenticated()">
+        <li class="nav-item"> 
+            <a class="nav-link">Witaj {{ username }}</a>
+        </li>
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a (click)="onLogOut()" class=" btn btn-outline-success">Wyloguj</a>
         </li>

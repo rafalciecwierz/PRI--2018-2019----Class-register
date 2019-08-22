@@ -12,7 +12,14 @@ module.exports = {
                 if (rows.length == 1) {
                     var payload = rows[0];
                     const token = jwt.sign({payload},config.get('jwtPrivateKey'));
-                    res.header('x-auth-token', token).header('role', rows[0].typ).header('name', rows[0].imie).send(JSON.stringify(rows[0].typ));
+                    // Token used for session purpose
+                    newToken = {
+                        token: token,
+                        role: rows[0].typ,
+                        username: rows[0].imie
+                      };
+                      //JSON.stringify(rows[0].typ)
+                    res.header('x-auth-token', token).header('role', rows[0].typ).header('name', rows[0].imie).send(newToken);
 				} 
                 else {
                     res.send('Error - zły login lub hasło!');

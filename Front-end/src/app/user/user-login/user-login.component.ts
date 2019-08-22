@@ -32,8 +32,10 @@ export class UserLoginComponent implements OnInit {
     });
 
     this.auth.logIn(this.loginUser).subscribe(
-      (tk: string) => {
-        this.auth.setSession(tk,tk,tk);
+      (resp: Object) => {
+        console.log(resp['token']+resp['role']+resp['username']);
+        
+        this.auth.setSession(resp['token'],resp['role'],resp['username']);
         this.router.navigate(['']);
       },
       (error) =>  {
