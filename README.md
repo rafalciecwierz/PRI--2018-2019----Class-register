@@ -19,4 +19,7 @@ Back-end
 - u need to setup you own jwtPrivateKey i default.json
 - nodemon (install it first) or node app.js
 
+Prototype
+- We use [Adobe XD](https://www.adobe.com/pl/products/xd.html) for prototype
+
 #1st milestone
