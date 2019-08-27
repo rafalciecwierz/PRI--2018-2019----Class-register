@@ -17,6 +17,10 @@ export class UserSessionService {
         return this.username;
     }
 
+    getToken(){
+        return this.token;
+    }
+    
     getRole() {
         return this.role;
     }

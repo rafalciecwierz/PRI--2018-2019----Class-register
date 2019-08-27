@@ -10,13 +10,13 @@
             <table class="table table-striped">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nazwa klasy</th>
-                <th scope="col">liczba uczestników</th>
+                <th scope="col">Numer klasy</th>
+                <th scope="col">Litera</th>
               </tr>
               <tr *ngFor="let class of classes; index as i">
                 <th scope="col"> {{i+1}} </th>
-                <td> {{class.name}} </td>
-                <td> {{class.count}} </td>
+                <td> {{class.NR_KLASY}} </td>
+                <td> {{class.LIT_KLASY}} </td>
               </tr>
             </table>
           </div>

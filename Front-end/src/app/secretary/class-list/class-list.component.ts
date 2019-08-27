@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ClassDataService } from 'src/app/services/class-data.service';
 
 @Component({
   selector: 'app-class-list',
@@ -10,35 +11,26 @@ export class ClassListComponent implements OnInit {
  
   alertFlag: boolean = false;
   alertMsg: string = "";
-  classes = [
-    {
-      name: 'Klasa A',
-      count: 10
-    },
-    {
-      name: 'Klasa B',
-      count: 5
-    },
-    {
-      name: 'Klasa C',
-      count: 4
-    },
-    {
-      name: 'Klasa D',
-      count: 2
-    }
-  ];
+  classes: any = [];
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private dataService: ClassDataService) { }
 
   ngOnInit() {
+    this.dataService.getClasses().subscribe(
+      (resp: Object) => {
+        this.classes = resp;
+      },
+      (error) =>  {
+        console.log(error.statusText);
+      }
+    );
   }
 
   // Modal handler
   open(content){
     this.modalService.open(content, {centered: true}).result.then((result) => {
       if(result.trim().length > 0){
-        this.classes.push({name: result, count: 0});
+        this.classes.push({ID_KLASY: 0, NR_KLASY: result.trim()[0] , LIT_KLASY: result.trim()[1]});
         this.alertMsg = "Klasa [" + result.trim() + "] dodana pomyślnie";
         this.alertFlag = true;
       }
