@@ -36,7 +36,7 @@
         <li class="nav-item" routerLinkActive="active" routerLink="/secretary/class">
             <a class="nav-link">Klasy</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" routerLink="">
+        <li class="nav-item" routerLinkActive="active" routerLink="secretary/students">
             <a class="nav-link">Uczniowie</a>
         </li>
         <li class="nav-item" routerLinkActive="active" routerLink="">
@@ -50,7 +50,7 @@
     <ul class="navbar-nav">
       <ng-template [ngIf]="isAuthenticated()">
         <li class="nav-item"> 
-            <a class="nav-link">Witaj {{ username }}</a>
+            <a class="nav-link">Witaj <b>{{ username }}</b></a>
         </li>
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a (click)="onLogOut()" class=" btn btn-outline-success">Wyloguj</a>

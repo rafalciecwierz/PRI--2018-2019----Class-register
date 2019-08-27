@@ -2,31 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-class-list',
-  templateUrl: './class-list.component.html',
-  styleUrls: ['./class-list.component.scss']
+  selector: 'app-student-list',
+  templateUrl: './student-list.component.html',
+  styleUrls: ['./student-list.component.scss']
 })
-export class ClassListComponent implements OnInit {
- 
+export class StudentListComponent implements OnInit {
+
   alertFlag: boolean = false;
   alertMsg: string = "";
-  classes = [
+  students = [
     {
-      name: 'Klasa A',
-      count: 10
+      name: 'Rafał',
+      surname: 'Nowak',
+      class: 'OA'
     },
     {
-      name: 'Klasa B',
-      count: 5
+      name: 'Wojciech',
+      surname: 'Nowak',
+      class: '4A'
     },
     {
-      name: 'Klasa C',
-      count: 4
+      name: 'Witold',
+      surname: 'Szyk',
+      class: '3A'
     },
     {
-      name: 'Klasa D',
-      count: 2
-    }
+      name: 'Paweł',
+      surname: 'Biały',
+      class: 'OA'
+    },
+    {
+      name: 'Michał',
+      surname: 'Czyk',
+      class: 'OA'
+    },
+ 
   ];
 
   constructor(private modalService: NgbModal) { }
@@ -34,11 +44,12 @@ export class ClassListComponent implements OnInit {
   ngOnInit() {
   }
 
-  // Modal handler
+  // Modal handler 
   open(content){
     this.modalService.open(content, {centered: true}).result.then((result) => {
       if(result.trim().length > 0){
-        this.classes.push({name: result, count: 0});
+        let res = result.trim().split(" ");
+        this.students.push({name: res[0], surname: res[1], class: "OA"});
         this.alertMsg = "Klasa [" + result.trim() + "] dodana pomyślnie";
         this.alertFlag = true;
       }
@@ -52,4 +63,5 @@ export class ClassListComponent implements OnInit {
       // Event handler when u click somwhere else than button.
     });
   }
+
 }

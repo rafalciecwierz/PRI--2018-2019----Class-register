@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 
 import { UserSessionService } from './services/user-session.service';
 import { ClassListComponent } from './secretary/class-list/class-list.component';
+import { StudentListComponent } from './secretary/student-list/student-list.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ClassListComponent } from './secretary/class-list/class-list.component'
     HeaderComponent,
     UserLoginComponent,
     MainComponent,
-    ClassListComponent
+    ClassListComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,

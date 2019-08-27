@@ -20,18 +20,30 @@
               </tr>
             </table>
           </div>
+          <div *ngIf="alertFlag" class="alert alert-primary" role="alert">
+              {{ alertMsg }}
+          </div>
         </div>
       </div>
     </div>
 </div>
 
-
+<!-- Modal for button -->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Wpisz nazwę klasy</h4>
   </div>
   <div class="modal-body">
-      <input #box type="text">
-      <button class="btn btn-primary" (click)="modal.close(box.value)">Dodaj</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+            <input #box type="text" (keyup.enter)="modal.close(box.value)" style="width: 100%; height: 38px">
+        </div>
+        <div class="col-1"></div>
+        <div class="col-2">
+            <button class="btn btn-primary" (click)="modal.close(box.value)">Dodaj</button>
+        </div>
+      </div>
+    </div>   
   </div>
 </ng-template>

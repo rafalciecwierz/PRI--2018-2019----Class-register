@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="card">
+            <div class="card-header">
+              <button class="btn btn-primary" (click)=open(content)>Dodaj ucznia</button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Lista uczniów</h5>
+              <table class="table table-striped">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Imię i nazwisko</th>
+                  <th scope="col">Klasa</th>
+                </tr>
+                <tr *ngFor="let student of students; index as i">
+                  <th scope="col"> {{i+1}} </th>
+                  <td> {{student.name}} {{ student.surname}} </td>
+                  <td> {{student.class}} </td>
+                </tr>
+              </table>
+            </div>
+            <div *ngIf="alertFlag" class="alert alert-primary" role="alert">
+                {{ alertMsg }}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Modal for button -->
+  <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Wpisz imię i nazwisko ucznia</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-9">
+                <input #box type="text" (keyup.enter)="modal.close(box.value)" style="width: 100%; height: 38px">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                <button class="btn btn-primary" (click)="modal.close(box.value)">Dodaj</button>
+            </div>
+          </div>
+        </div>   
+      </div>
+    </ng-template>
