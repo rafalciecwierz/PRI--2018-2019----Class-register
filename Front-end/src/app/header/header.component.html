@@ -2,7 +2,7 @@
   <a routerLinkActive="active" routerLink="" class="navbar-brand">
     <img src="http://eduharmonia.pl/wp-content/themes/eduharmonia/images/logo.png" height="30px;" alt="HarmoniaBrand"
       class="align-top">
-    E-Hamornia
+    E-Harmonia
   </a>
   <button type="button" style="float: right;" class="navbar-toggler btn btn-outline-success" data-toggle="collapse"
     (click)="toggleNavbar()">X</button>
@@ -20,11 +20,31 @@
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a class="nav-link">Panel Rodzica</a>
         </li>
+        <li class="divider nav-item"></li>
+        <li class="nav-item" routerLinkActive="active" routerLink="parent/schedule">
+          <a class="nav-link">Plan lekcji</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" routerLink="parent/attendance">
+          <a class="nav-link">Obecności</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" routerLink="parent/marks">
+          <a class="nav-link">Oceny</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" routerLink="">
+            <a class="nav-link">Wiadomości</a>
+        </li>
       </ng-template>
       <!-- Teacher Section -->
       <ng-template [ngIf]="getRole()=='n'">
         <li class="nav-item" routerLinkActive="active" routerLink="">
           <a class="nav-link">Panel Nauczyciela</a>
+        </li>
+        <li class="divider nav-item"></li>
+        <li class="nav-item" routerLinkActive="active" routerLink="teacher/schedule">
+          <a class="nav-link">Plan lekcji</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" routerLink="">
+            <a class="nav-link">Wiadomości</a>
         </li>
       </ng-template>
       <!-- Secretary Section -->
@@ -38,6 +58,9 @@
         </li>
         <li class="nav-item" routerLinkActive="active" routerLink="secretary/students">
             <a class="nav-link">Uczniowie</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" routerLink="secretary/schedule">
+          <a class="nav-link">Plan lekcji</a>
         </li>
         <li class="nav-item" routerLinkActive="active" routerLink="">
             <a class="nav-link">Wiadomości</a>
