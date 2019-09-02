@@ -6,9 +6,10 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
 const generator = require('generate-password');
-
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(bodyparser.json());
 
 //Checking if dbConfig is set
@@ -18,7 +19,7 @@ if(!config.get('dbConfig.password')){
 }
 
 if(!config.get('jwtPrivateKey')){
-    console.error('FATAL ERROR: db_password is not defined');
+    console.error('FATAL ERROR: jwtPrivateKey is not defined');
     process.exit(1);
 }
 
