@@ -9,7 +9,7 @@ export class ExerciseDataService {
     getExercises(){
         let token = this.auth.getToken();
         let header = new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token': `${token}`});
-        return this.http.get('http://127.0.0.1:3000/zajecia', { headers: header});
+        return this.http.get('http://127.0.0.1:3000/plan_sekretarki', { headers: header});
     }
 
     postExercise(el){
