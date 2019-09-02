@@ -13,11 +13,12 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { MainComponent } from './main/main.component';
 import { ClassListComponent } from './secretary/class-list/class-list.component';
 import { StudentListComponent } from './secretary/student-list/student-list.component';
+import { MessagesListComponent } from './messages/messages-list/messages-list.component';
 
 // Services
 import { UserSessionService } from './services/user-session.service';
 import { ClassDataService } from './services/class-data.service';
-import { MessagesListComponent } from './messages/messages-list/messages-list.component';
+import { StudentDataService } from './services/students-data.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { MessagesListComponent } from './messages/messages-list/messages-list.co
     HttpClientModule,
     NgbModule
   ],
-  providers: [UserSessionService, ClassDataService],
+  providers: [UserSessionService, ClassDataService, StudentDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

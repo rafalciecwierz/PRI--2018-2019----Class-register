@@ -1,6 +1,9 @@
 module.exports = {
     wyswietlUczniow: (req, res) => {
-                let sql = 'SELECT * FROM uczniowie';
+                let sql = `SELECT CONCAT(IMIE, " ", IMIE2, " ", NAZWISKO) as nazwa, CONCAT(ADRES, ", ", CONCAT(SUBSTRING(KODPOCZTOWY , 1, 2),
+                    "-",
+                       SUBSTRING(KODPOCZTOWY , 3, 3)
+                ), " ", MIASTO) as adres, CONCAT(klasy.NR_KLASY, klasy.LIT_KLASY) as klasa  FROM uczniowie INNER JOIN klasy ON uczniowie.ID_KLASY = klasy.ID_KLASY`;
                 let query = db.query(sql, (err, rows, fields) => {
                     if(err) throw err;
                 res.send(JSON.stringify(rows));

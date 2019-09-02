@@ -12,6 +12,11 @@ export class ClassListComponent implements OnInit {
   alertFlag: boolean = false;
   alertMsg: string = "";
   classes: any = [];
+  class = {
+    NR_KLASY: "",
+    LIT_KLASY: ""
+  };
+
 
   constructor(private modalService: NgbModal, private dataService: ClassDataService) { }
 
@@ -29,15 +34,18 @@ export class ClassListComponent implements OnInit {
   // Modal handler
   open(content){
     this.modalService.open(content, {centered: true}).result.then((result) => {
-      if(result.trim().length > 0){
-        this.classes.push({ID_KLASY: 0, NR_KLASY: result.trim()[0] , LIT_KLASY: result.trim()[1]});
-        this.alertMsg = "Klasa [" + result.trim() + "] dodana pomyślnie";
-        this.alertFlag = true;
-      }
-      else {
-        this.alertFlag = true;
-        this.alertMsg = "Nie dodałeś klasy";
-      }
+      this.class.NR_KLASY = result[0];
+      this.class.LIT_KLASY = result[1];
+      // SENDING POST REQUEST WITH CLASS BODY
+      this.dataService.postClass(this.class).subscribe(
+        (resp: Object) => {
+          this.classes.push({ID_KLASY: 0, NR_KLASY: result[0] , LIT_KLASY: result[1]});
+          this.alertMsg = "Klasa [" + result[0]+ result[1] + "] została pomyślnie dodana";
+          this.alertFlag = true;
+        }, (error) => {
+          console.log(error.statusText); 
+        }
+      );
     }, (reason) => {
       this.alertFlag = true;
       this.alertMsg = "Nie dodałeś klasy";

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { StudentDataService } from 'src/app/services/students-data.service';
 
 @Component({
   selector: 'app-student-list',
@@ -10,38 +11,22 @@ export class StudentListComponent implements OnInit {
 
   alertFlag: boolean = false;
   alertMsg: string = "";
-  students = [
-    {
-      name: 'Rafał',
-      surname: 'Nowak',
-      class: 'OA'
-    },
-    {
-      name: 'Wojciech',
-      surname: 'Nowak',
-      class: '4A'
-    },
-    {
-      name: 'Witold',
-      surname: 'Szyk',
-      class: '3A'
-    },
-    {
-      name: 'Paweł',
-      surname: 'Biały',
-      class: 'OA'
-    },
-    {
-      name: 'Michał',
-      surname: 'Czyk',
-      class: 'OA'
-    },
- 
-  ];
+  students: any = [];
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private dataService: StudentDataService) { }
 
   ngOnInit() {
+    this.dataService.getStudents().subscribe(
+      (resp: Object) => {
+        console.log(resp);
+        
+        this.students = resp;
+
+      },
+      (error) =>  {
+        console.log(error.statusText);
+      }
+    );
   }
 
   // Modal handler 
