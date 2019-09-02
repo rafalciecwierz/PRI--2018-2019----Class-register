@@ -15,7 +15,8 @@ export class StudentDataService{
 
     addStudent(body){
         let token = this.auth.getToken();
-        let header = new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token': `${token}`});
+        const role = this.auth.getRole();
+        let header = new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token': `${token}`, 'role': `${role}`});
         return this.http.post('http://127.0.0.1:3000/uczniowie', body, { headers: header});
     }
 

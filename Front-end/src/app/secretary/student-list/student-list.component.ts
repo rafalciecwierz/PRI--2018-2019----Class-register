@@ -14,6 +14,16 @@ export class StudentListComponent implements OnInit {
   alertMsg: string = "";
   classes: any = [];
   students: any = [];
+  student = {
+    ID_UCZNIA: '',
+    IMIE: '',
+    IMIE2: '',
+    NAZWISKO: '',
+    ADRES: '',
+    MIASTO: '',
+    KODPOCZTOWY: '',
+    ID_KLASY: ''
+  }
 
   constructor(private modalService: NgbModal, 
     private dataStudentsService: StudentDataService,
@@ -23,6 +33,8 @@ export class StudentListComponent implements OnInit {
     // Load students to list
     this.dataStudentsService.getStudents().subscribe(
       (resp: Object) => {  
+        console.log(resp);
+        
         this.students = resp;
       },
       (error) =>  {
@@ -44,7 +56,26 @@ export class StudentListComponent implements OnInit {
     );
 
     this.modalService.open(content, {centered: true}).result.then((result) => {
-      console.log(result); 
+      this.student.IMIE = result[0];
+      this.student.IMIE2 = result[1];
+      this.student.NAZWISKO = result[2];
+      this.student.ADRES = result[3];
+      this.student.MIASTO = result[4];
+      this.student.KODPOCZTOWY = result[5]+result[6];
+      this.student.ID_KLASY = result[7];
+      
+      this.dataStudentsService.addStudent(this.student).subscribe(
+        (resp: Object) => {
+          this.students.push({ nazwa: this.student.IMIE + " " + this.student.IMIE2 + " " + this.student.NAZWISKO, adres: this.student.ADRES + " " + this.student.KODPOCZTOWY + " " + this.student.MIASTO  , klasa: this.student.ID_KLASY});
+          this.alertMsg = "Uczeń [" + result[0]+ " "+ result[2] + "] została pomyślnie dodany";
+          // this.classes.push({ID_KLASY: 0, NR_KLASY: result[0] , LIT_KLASY: result[1]});
+          // this.alertMsg = "Uczeń [" + result[0]+ " "+ result[1] + "] została pomyślnie dodana";
+          this.alertFlag = true;
+        }, (error) => {
+          console.log(error.statusText); 
+        }
+      );
+
 
       // if(result.trim().length > 0){
       //   // let res = result.trim().split(" ");
