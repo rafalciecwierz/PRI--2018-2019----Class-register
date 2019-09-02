@@ -5,14 +5,10 @@ const config = require('config');
 const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
-var cors = require('cors');
-
 const generator = require('generate-password');
 
 
 const app = express();
-app.use(cors());
-
 app.use(bodyparser.json());
 
 //Checking if dbConfig is set
@@ -22,7 +18,7 @@ if(!config.get('dbConfig.password')){
 }
 
 if(!config.get('jwtPrivateKey')){
-    console.error('FATAL ERROR: jwtPrivateKey is not defined');
+    console.error('FATAL ERROR: db_password is not defined');
     process.exit(1);
 }
 
@@ -40,9 +36,11 @@ db.connect((err) => {
 global.db = db;
 
 // Wywołanie modułów
-const {wyswietlUczniow, dodajUcznia} = require('./routes/uczniowie');
+const {wyswietlUczniow, dodajUcznia, wyswietlUczniowKlasy, planUcznia} = require('./routes/uczniowie');
 app.get('/uczniowie', auth, wyswietlUczniow);
+app.get('/uczniowieKlasy', auth, wyswietlUczniowKlasy);
 app.post('/uczniowie', [auth,auth_sekr], dodajUcznia);
+app.get('/plan_ucznia', auth, planUcznia);
 
 const {wyswietlKlasy, dodajKlase} = require('./routes/klasy');
 app.get('/klasy', auth, wyswietlKlasy);
@@ -52,7 +50,8 @@ const {wyswietlPrzedmioty, dodajPrzedmiot} = require('./routes/przedmioty');
 app.get('/przedmioty', auth, wyswietlPrzedmioty);
 app.post('/przedmioty', [auth,auth_sekr], dodajPrzedmiot);
 
-const {wyswietlZajecia, dodajZajecia} = require('./routes/zajecia');
+const {wyswietlZajecia, dodajZajecia, planSekretarki} = require('./routes/zajecia');
+app.get('/plan_sekretarki', auth, planSekretarki);
 app.get('/zajecia', auth, wyswietlZajecia);
 app.post('/zajecia', auth, dodajZajecia);
 
@@ -60,7 +59,8 @@ const {wyswietlKlasyZajecia, dodajKlaseZajecia} = require('./routes/klasyzajecia
 app.get('/klasy_zajecia', auth, wyswietlKlasyZajecia);
 app.post('/klasy_zajecia', auth, dodajKlaseZajecia);
 
-const {wyswietlNauczycieli, dodajNauczyciela} = require('./routes/nauczyciele');
+const {wyswietlNauczycieli, dodajNauczyciela, planNauczyciela} = require('./routes/nauczyciele');
+app.get('/plan_nauczyciela', auth, planNauczyciela);
 app.get('/nauczyciele', auth, wyswietlNauczycieli);
 app.post('/nauczyciele', [auth,auth_sekr], dodajNauczyciela);
 
