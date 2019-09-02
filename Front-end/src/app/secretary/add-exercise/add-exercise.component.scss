@@ -1,0 +1,51 @@
+@import '../../styles/colours';
+
+.row-size {
+  height: 100%;
+}
+
+.section-nav-wrapper {
+  display: flex;
+  background-color: white;
+  padding: 25px;
+  border-bottom: 1px solid $border-gray;
+}
+
+.main-wrapper {
+  background-color: white;
+  padding: 65px 150px 65px 80px;
+  height: 100%;
+}
+
+
+
+.full-width {
+  width: 100%;
+  margin-top: 25px;
+}
+
+
+main.add-exercise {
+  .row-item {
+    margin-bottom: 15px;
+  }
+
+  input {
+    border: 1px solid $border-gray;
+    height: 52px;
+    color: black;
+    border-radius: 0;
+    background-color: white;
+    padding: 5px 25px;
+    font-size: 20px;
+    width: 100%;
+    margin: 0;
+  }
+
+  label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+}

@@ -1,0 +1,28 @@
+@import '../../styles/index';
+
+.schedule-aside {
+  background-color: white;
+  border-right: 1px solid $border-gray;
+  height: 100%;
+}
+
+.schedule-aside-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 15px;
+
+  .list-item {
+    padding: 25px 0;
+
+    a {
+      color: black;
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+}

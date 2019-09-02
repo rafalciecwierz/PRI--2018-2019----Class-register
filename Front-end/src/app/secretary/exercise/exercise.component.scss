@@ -1,0 +1,46 @@
+@import '../../styles/colours';
+
+.row-size {
+  height: 100%;
+}
+
+.section-nav-wrapper {
+  display: flex;
+  background-color: white;
+  padding: 25px;
+  border-bottom: 1px solid $border-gray;
+}
+
+.main-wrapper {
+  background-color: white;
+  padding: 65px 150px 65px 80px;
+  height: 100%;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  input {
+    border: 1px solid $border-gray;
+    width: 83%;
+    height: 52px;
+    color: black;
+    border-radius: 0;
+    background-color: white;
+    padding: 5px 25px;
+    font-size: 20px;
+  }
+
+  .search-btn {
+    margin: 0;
+    width: 15%;
+  }
+}
+
+.search-box {
+  margin-top: 45px;
+  border: 1px solid $border-gray;
+  min-height: 300px;
+}
