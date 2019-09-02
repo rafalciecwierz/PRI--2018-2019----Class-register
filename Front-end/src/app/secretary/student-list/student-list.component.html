@@ -11,14 +11,12 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Imię i nazwisko</th>
-                  <th scope="col">Adres</th>
                   <th scope="col">Klasa</th>
                 </tr>
                 <tr *ngFor="let student of students; index as i">
                   <th scope="col"> {{i+1}} </th>
-                  <td> {{student.nazwa}} </td>
-                  <td> {{student.adres}} </td>
-                  <td> {{student.klasa}} </td>
+                  <td> {{student.name}} {{ student.surname}} </td>
+                  <td> {{student.class}} </td>
                 </tr>
               </table>
             </div>
@@ -33,7 +31,7 @@
   <!-- Modal for button -->
   <ng-template #content let-modal>
       <div class="modal-header">
-        <h4 class="modal-title">Podaj dane ucznia do dodania</h4>
+        <h4 class="modal-title">Wpisz imię i nazwisko ucznia</h4>
       </div>
       <div class="modal-body">
         <div class="container">

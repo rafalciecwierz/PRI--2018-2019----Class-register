@@ -13,13 +13,15 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { MainComponent } from './main/main.component';
 import { ClassListComponent } from './secretary/class-list/class-list.component';
 import { StudentListComponent } from './secretary/student-list/student-list.component';
-import { MessagesListComponent } from './messages/messages-list/messages-list.component';
+import { ScheduleComponent } from './secretary/schedule/schedule.component';
+import { ScheduleAsideComponent } from './secretary/schedule-aside/schedule-aside.component';
+import {ExerciseComponent} from './secretary/exercise/exercise.component';
+import {AddExerciseComponent} from './secretary/add-exercise/add-exercise.component';
 
 // Services
 import { UserSessionService } from './services/user-session.service';
 import { ClassDataService } from './services/class-data.service';
-import { StudentDataService } from './services/students-data.service';
-
+import { ExerciseDataService } from './services/exercise-data.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,10 @@ import { StudentDataService } from './services/students-data.service';
     MainComponent,
     ClassListComponent,
     StudentListComponent,
-    MessagesListComponent
+    ScheduleComponent,
+    ScheduleAsideComponent,
+    ExerciseComponent,
+    AddExerciseComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { StudentDataService } from './services/students-data.service';
     HttpClientModule,
     NgbModule
   ],
-  providers: [UserSessionService, ClassDataService, StudentDataService],
+  providers: [UserSessionService, ClassDataService, ExerciseDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

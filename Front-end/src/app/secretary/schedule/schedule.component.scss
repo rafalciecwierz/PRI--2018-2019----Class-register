@@ -1,0 +1,43 @@
+@import '../../styles/colours';
+
+.row-size {
+  height: 100%;
+}
+
+.section-nav-wrapper {
+  display: flex;
+  background-color: white;
+  padding: 25px;
+  border-bottom: 1px solid $border-gray;
+}
+
+.main-wrapper {
+  background-color: white;
+  padding: 65px 150px 65px 80px;
+  height: 100%;
+}
+
+.schedule-wrapper {
+  padding: 45px 70px 10px 10px;
+  background-color: white;
+  height: 100%;
+
+  table {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+
+    tr {
+      border: 1px solid black;
+    }
+
+    th, td {
+      width: 12.5%;
+      border-right: 1px solid black;
+
+      &:last-of-type {
+        border: 0;
+      }
+    }
+  }
+}

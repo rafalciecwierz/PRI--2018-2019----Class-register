@@ -1,0 +1,63 @@
+<div class="row row-size" style="margin: 0;">
+    <app-schedule-aside class="col-md-4" style="padding: 0;"></app-schedule-aside>
+    <div class="col-md-8" style="padding: 0;">
+      <div class="section-nav-wrapper">
+        <button class="btn-green" routerLink="/secretary/schedule/exercise" routerLinkActiveOptions="{exact: true}">Lista zajęć</button>
+        <button class="btn-green" routerLink="/secretary/schedule/exercise/add-exercise" routerLinkActiveOptions="{exact: true}">Dodaj zajęcia</button>
+      </div>
+      <main class="main-wrapper add-exercise">
+
+        <div class="row row-item">
+          <div class="col-7">
+            <input type="text" name="ex_name">
+          </div>
+          <div class="col-5">
+            <label for="ex_name">Nazwa przedmiotu/zajęć</label>
+          </div>
+        </div>
+
+        <div class="row row-item">
+          <div class="col-7">
+            <input type="text" name="class">
+          </div>
+          <div class="col-5">
+            <label for="class">Klasa</label>
+          </div>
+        </div>
+
+        <div class="row row-item">
+          <div class="col-7">
+            <input type="text" name="nl">
+          </div>
+          <div class="col-5">
+            <label for="nl">Nauczyciel</label>
+          </div>
+        </div>
+
+        <div class="row row-item">
+          <div class="col-7">
+            <input type="date" name="day">
+          </div>
+          <div class="col-5">
+            <label for="day">Dzień</label>
+          </div>
+        </div>
+
+        <div class="row row-item">
+          <div class="col-7">
+            <input type="number" name="time">
+          </div>
+          <div class="col-5">
+            <label for="time">Godziny zajęć</label>
+          </div>
+        </div>
+
+        <div class="row row-item">
+          <div class="col-7">
+            <button type="submit" class="btn-green full-width">Dodaj</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
