@@ -5,7 +5,7 @@
     E-Harmonia
   </a>
   <button type="button" style="float: right;" class="navbar-toggler btn btn-outline-success" data-toggle="collapse"
-    (click)="toggleNavbar()">X</button>
+    (click)="toggleNavbar()">o</button>
 
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav">
@@ -30,9 +30,6 @@
         <li class="nav-item" routerLinkActive="active" routerLink="parent/marks">
           <a class="nav-link">Oceny</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" routerLink="">
-            <a class="nav-link">Wiadomości</a>
-        </li>
       </ng-template>
       <!-- Teacher Section -->
       <ng-template [ngIf]="getRole()=='n'">
@@ -42,9 +39,6 @@
         <li class="divider nav-item"></li>
         <li class="nav-item" routerLinkActive="active" routerLink="teacher/schedule">
           <a class="nav-link">Plan lekcji</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active" routerLink="">
-            <a class="nav-link">Wiadomości</a>
         </li>
       </ng-template>
       <!-- Secretary Section -->
@@ -59,20 +53,21 @@
         <li class="nav-item" routerLinkActive="active" routerLink="secretary/students">
             <a class="nav-link">Uczniowie</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" routerLink="secretary/schedule/plan">
+        <li class="nav-item" routerLinkActive="active" routerLink="secretary/schedule">
           <a class="nav-link">Plan lekcji</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" routerLink="">
-            <a class="nav-link">Wiadomości</a>
-        </li>
-
+      </ng-template>
+      <ng-template [ngIf]="getRole() == null">
+          <li class="nav-item" routerLinkActive="active" routerLink="messages">
+              <a class="nav-link">Wiadomości</a>
+          </li>
       </ng-template>
     </ul>
   </div>
   <div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav">
       <ng-template [ngIf]="isAuthenticated()">
-        <li class="nav-item">
+        <li class="nav-item"> 
             <a class="nav-link">Witaj <b>{{ username }}</b></a>
         </li>
         <li class="nav-item" routerLinkActive="active" routerLink="">

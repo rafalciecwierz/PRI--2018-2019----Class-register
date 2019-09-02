@@ -17,11 +17,13 @@ import { ScheduleComponent } from './secretary/schedule/schedule.component';
 import { ScheduleAsideComponent } from './secretary/schedule-aside/schedule-aside.component';
 import {ExerciseComponent} from './secretary/exercise/exercise.component';
 import {AddExerciseComponent} from './secretary/add-exercise/add-exercise.component';
+import {MessagesListComponent} from './messages/messages-list/messages-list.component';
 
 // Services
 import { UserSessionService } from './services/user-session.service';
 import { ClassDataService } from './services/class-data.service';
 import { ExerciseDataService } from './services/exercise-data.service';
+import { StudentDataService } from './services/students-data.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { ExerciseDataService } from './services/exercise-data.service';
     ScheduleAsideComponent,
     ExerciseComponent,
     AddExerciseComponent,
+    MessagesListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { ExerciseDataService } from './services/exercise-data.service';
     HttpClientModule,
     NgbModule
   ],
-  providers: [UserSessionService, ClassDataService, ExerciseDataService],
+  providers: [UserSessionService, ClassDataService, ExerciseDataService, StudentDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,10 +7,12 @@ import { StudentListComponent } from './secretary/student-list/student-list.comp
 import { ScheduleComponent } from './secretary/schedule/schedule.component';
 import {ExerciseComponent} from './secretary/exercise/exercise.component';
 import {AddExerciseComponent} from './secretary/add-exercise/add-exercise.component';
+import {MessagesListComponent} from './messages/messages-list/messages-list.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent},
   { path: '', component: MainComponent},
+  { path: 'messages', component: MessagesListComponent},
   { path: 'secretary/class', component: ClassListComponent},
   { path: 'secretary/students', component: StudentListComponent},
   { path: 'secretary/schedule/plan', component: ScheduleComponent},
