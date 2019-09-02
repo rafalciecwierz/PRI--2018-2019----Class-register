@@ -9,6 +9,7 @@ export class UserSessionService {
     token: string = null;
     role: string = null;
     username: string = null;
+    user_id: string = null;
 
 
     constructor(private httpClient: HttpClient) { }
@@ -20,24 +21,31 @@ export class UserSessionService {
     getToken(){
         return this.token;
     }
-    
+
     getRole() {
         return this.role;
     }
+
     isAuthenticated() {
         return this.token != null;
     }
 
-    setSession(newToken: string, newRole: string, newUsername: string) {
+    getUserId() {
+      return this.user_id;
+    }
+
+    setSession(newToken: string, newRole: string, newUsername: string, newID: string) {
         this.token = newToken;
         this.role = newRole;
         this.username = newUsername;
+        this.user_id = newID;
     }
 
     resetSession() {
         this.token = null;
         this.role = null;
         this.username = null;
+        this.user_id = null;
     }
 
 

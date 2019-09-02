@@ -16,6 +16,7 @@ module.exports = {
                     newToken = {
                         token: token,
                         role: rows[0].typ,
+                        user_id: rows[0].id_typu,
                         username: rows[0].imie
                       };
                       //JSON.stringify(rows[0].typ)

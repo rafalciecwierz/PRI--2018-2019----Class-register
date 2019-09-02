@@ -13,11 +13,13 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { MainComponent } from './main/main.component';
 import { ClassListComponent } from './secretary/class-list/class-list.component';
 import { StudentListComponent } from './secretary/student-list/student-list.component';
-import { ScheduleComponent } from './secretary/schedule/schedule.component';
+import { SecretaryScheduleComponent } from './secretary/schedule/schedule.component';
 import { ScheduleAsideComponent } from './secretary/schedule-aside/schedule-aside.component';
 import {ExerciseComponent} from './secretary/exercise/exercise.component';
 import {AddExerciseComponent} from './secretary/add-exercise/add-exercise.component';
 import {MessagesListComponent} from './messages/messages-list/messages-list.component';
+import { TeacherScheduleComponent } from './teacher/schedule/schedule.component';
+import { ParentScheduleComponent } from './parent/schedule/schedule.component';
 
 // Services
 import { UserSessionService } from './services/user-session.service';
@@ -33,11 +35,13 @@ import { StudentDataService } from './services/students-data.service';
     MainComponent,
     ClassListComponent,
     StudentListComponent,
-    ScheduleComponent,
+    SecretaryScheduleComponent,
     ScheduleAsideComponent,
     ExerciseComponent,
     AddExerciseComponent,
     MessagesListComponent,
+    TeacherScheduleComponent,
+    ParentScheduleComponent,
   ],
   imports: [
     BrowserModule,
