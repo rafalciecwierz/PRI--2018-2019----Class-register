@@ -31,7 +31,7 @@
 <!-- Modal for button -->
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Wpisz nazwę klasy</h4>
+    <h4 class="modal-title">Wprowadź dane klasy</h4>
   </div>
   <div class="modal-body">
     <div class="container">
@@ -39,9 +39,8 @@
         <div class="col-9">
             <input #box type="text" (keyup.enter)="modal.close(box.value)" style="width: 100%; height: 38px">
         </div>
-        <div class="col-1"></div>
-        <div class="col-2">
-            <button class="btn btn-primary" (click)="modal.close(box.value)">Dodaj</button>
+        <div class="col-12">
+            <button class="btn btn-primary btn-block" (click)="modal.close([box1.value, box2.value])">Dodaj klasę</button>
         </div>
       </div>
     </div>   

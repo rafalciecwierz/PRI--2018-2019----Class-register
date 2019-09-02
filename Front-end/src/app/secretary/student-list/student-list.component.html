@@ -1,49 +1,85 @@
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-10">
-          <div class="card">
-            <div class="card-header">
-              <button class="btn btn-primary" (click)=open(content)>Dodaj ucznia</button>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Lista uczniów</h5>
-              <table class="table table-striped">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Imię i nazwisko</th>
-                  <th scope="col">Klasa</th>
-                </tr>
-                <tr *ngFor="let student of students; index as i">
-                  <th scope="col"> {{i+1}} </th>
-                  <td> {{student.name}} {{ student.surname}} </td>
-                  <td> {{student.class}} </td>
-                </tr>
-              </table>
-            </div>
-            <div *ngIf="alertFlag" class="alert alert-primary" role="alert">
-                {{ alertMsg }}
-            </div>
+  <div class="row justify-content-center my-5">
+    <div class="col-10">
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-primary my-1" (click)=open(content)>Dodaj ucznia</button>
+          <div *ngIf="alertFlag" class="alert alert-primary my-1" role="alert">
+              {{ alertMsg }}
           </div>
         </div>
-      </div>
-  </div>
+        <div class="card-body">
+          <h5 class="card-title">Lista uczniów</h5>
+          <table class="table table-striped">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Imię i nazwisko</th>
+              <th scope="col">Adres</th>
+              <th scope="col">Klasa</th>
+            </tr>
+            <tr *ngFor="let student of students; index as i">
+              <th scope="col"> {{i+1}} </th>
+              <td> {{student.nazwa}} </td>
+              <td> {{student.adres}} </td>
+              <td> {{student.klasa}} </td>
+            </tr>
+          </table>
+        </div>
 
-  <!-- Modal for button -->
-  <ng-template #content let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title">Wpisz imię i nazwisko ucznia</h4>
       </div>
-      <div class="modal-body">
-        <div class="container">
-          <div class="row">
-            <div class="col-9">
-                <input #box type="text" (keyup.enter)="modal.close(box.value)" style="width: 100%; height: 38px">
-            </div>
-            <div class="col-1"></div>
-            <div class="col-2">
-                <button class="btn btn-primary" (click)="modal.close(box.value)">Dodaj</button>
-            </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for button -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Podaj dane ucznia do dodania</h4>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="Name1">Pierwsze imię</label>
+            <input #name1 type="text" class="form-control" id="name1" aria-describedby="First Name" placeholder="Np. Jan">
           </div>
-        </div>   
+          <div class="form-group">
+            <label for="Name2">Drugie imię</label>
+            <input #name2 type="text" class="form-control" id="name2" aria-describedby="Second Name"
+              placeholder="Np. Sebastian">
+          </div>
+          <div class="form-group">
+            <label for="Surname">Nazwisko</label>
+            <input #surname type="text" class="form-control" id="Surname" aria-describedby="Surname" placeholder="Np. Bach">
+          </div>
+          <div class="form-group">
+            <label for="adress">Ulica i nr mieszkania</label>
+            <input #adress type="text" class="form-control" id="adress" aria-describedby="adress"
+              placeholder="Np. Niepodległości 1A/1">
+          </div>
+          <div class="form-group">
+            <label for="city">Miasto</label>
+            <input #city type="text" class="form-control" id="city" aria-describedby="city" placeholder="Np. Poznań">
+          </div>
+          <div class="form-group">
+            <label style="display: block" for="zip">Kod pocztowy</label>
+            <input #zip1 style="width: 20%; display: inline;" type="number" class="form-control" id="zip"
+              aria-describedby="zip-code" placeholder="77">-
+            <input #zip2 style="width: 30%; display: inline;" type="number" class="form-control" id="zip"
+              aria-describedby="zip-code" placeholder="777">
+          </div>
+          <div class="form-group">
+            <label for="class">Klasa</label>
+            <select #classChoice class="form-control" id="class">
+              <option  value="{{class.ID_KLASY}}" *ngFor="let class of classes; index as i">{{class.NR_KLASY}}{{class.LIT_KLASY}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary btn-block" (click)="modal.close([name1.value, name2.value, surname.value, adress.value, city.value, zip1.value, zip2.value, classChoice.value])">Dodaj</button>
+        </div>
       </div>
-    </ng-template>
+    </div>
+  </div>
+</ng-template>
