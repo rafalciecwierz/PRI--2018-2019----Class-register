@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'secretary/schedule/exercise/add-exercise',canActivate: [AuthGuard], component: AddExerciseComponent},
   { path: 'teacher/schedule/plan',canActivate: [AuthGuard], component: TeacherScheduleComponent},
   { path: 'parent/schedule/plan',canActivate: [AuthGuard], component: ParentScheduleComponent},
+  { path: '**', redirectTo: ''},
 ];
 
 @NgModule({
