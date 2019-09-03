@@ -17,7 +17,18 @@
       </nav>
     </div>
     <div class="col-12 col-md-9">
-      <div class="row"> Row</div>
+      <h3>Wiadmomości:</h3>
+      <div class="row my-3">
+        <div *ngFor="let message of messages; index as i" class="col-12 border border-primary py-1 my-1">
+          Data: {{message.data}}
+          <div class="card">
+            <div class="card-body">
+              <b>Od:</b> {{message.from}} | <b>Treść:</b> {{ message.text}}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
