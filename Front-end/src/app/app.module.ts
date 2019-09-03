@@ -26,6 +26,7 @@ import { UserSessionService } from './services/user-session.service';
 import { ClassDataService } from './services/class-data.service';
 import { ExerciseDataService } from './services/exercise-data.service';
 import { StudentDataService } from './services/students-data.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { StudentDataService } from './services/students-data.service';
     HttpClientModule,
     NgbModule
   ],
-  providers: [UserSessionService, ClassDataService, ExerciseDataService, StudentDataService],
+  providers: [UserSessionService, ClassDataService, ExerciseDataService, StudentDataService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

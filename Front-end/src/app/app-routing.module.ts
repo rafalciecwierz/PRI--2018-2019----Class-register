@@ -10,18 +10,19 @@ import { AddExerciseComponent } from './secretary/add-exercise/add-exercise.comp
 import { MessagesListComponent } from './messages/messages-list/messages-list.component';
 import { TeacherScheduleComponent } from './teacher/schedule/schedule.component';
 import { ParentScheduleComponent } from './parent/schedule/schedule.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent},
   { path: '', component: MainComponent},
-  { path: 'messages', component: MessagesListComponent},
-  { path: 'secretary/class', component: ClassListComponent},
-  { path: 'secretary/students', component: StudentListComponent},
-  { path: 'secretary/schedule/plan', component: SecretaryScheduleComponent},
-  { path: 'secretary/schedule/exercise', component: ExerciseComponent},
-  { path: 'secretary/schedule/exercise/add-exercise', component: AddExerciseComponent},
-  { path: 'teacher/schedule/plan', component: TeacherScheduleComponent},
-  { path: 'parent/schedule/plan', component: ParentScheduleComponent},
+  { path: 'messages',canActivate: [AuthGuard], component: MessagesListComponent},
+  { path: 'secretary/class', canActivate: [AuthGuard], component: ClassListComponent},
+  { path: 'secretary/students', canActivate: [AuthGuard], component: StudentListComponent},
+  { path: 'secretary/schedule/plan',canActivate: [AuthGuard], component: SecretaryScheduleComponent},
+  { path: 'secretary/schedule/exercise',canActivate: [AuthGuard], component: ExerciseComponent},
+  { path: 'secretary/schedule/exercise/add-exercise',canActivate: [AuthGuard], component: AddExerciseComponent},
+  { path: 'teacher/schedule/plan',canActivate: [AuthGuard], component: TeacherScheduleComponent},
+  { path: 'parent/schedule/plan',canActivate: [AuthGuard], component: ParentScheduleComponent},
 ];
 
 @NgModule({
