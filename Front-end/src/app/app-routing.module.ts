@@ -10,11 +10,13 @@ import { AddExerciseComponent } from './secretary/add-exercise/add-exercise.comp
 import { MessagesListComponent } from './messages/messages-list/messages-list.component';
 import { TeacherScheduleComponent } from './teacher/schedule/schedule.component';
 import { ParentScheduleComponent } from './parent/schedule/schedule.component';
+import { NotFoundComponent } from './main/not-found/not-found/not-found.component';
 import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent},
   { path: '', component: MainComponent},
+  { path: 'not-found', component: NotFoundComponent},
   { path: 'messages',canActivate: [AuthGuard], component: MessagesListComponent},
   { path: 'secretary/class', canActivate: [AuthGuard], component: ClassListComponent},
   { path: 'secretary/students', canActivate: [AuthGuard], component: StudentListComponent},
@@ -23,7 +25,7 @@ const routes: Routes = [
   { path: 'secretary/schedule/exercise/add-exercise',canActivate: [AuthGuard], component: AddExerciseComponent},
   { path: 'teacher/schedule/plan',canActivate: [AuthGuard], component: TeacherScheduleComponent},
   { path: 'parent/schedule/plan',canActivate: [AuthGuard], component: ParentScheduleComponent},
-  { path: '**', redirectTo: ''},
+  { path: '**', redirectTo: 'not-found'},
 ];
 
 @NgModule({

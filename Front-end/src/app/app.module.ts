@@ -20,6 +20,7 @@ import {AddExerciseComponent} from './secretary/add-exercise/add-exercise.compon
 import {MessagesListComponent} from './messages/messages-list/messages-list.component';
 import { TeacherScheduleComponent } from './teacher/schedule/schedule.component';
 import { ParentScheduleComponent } from './parent/schedule/schedule.component';
+import { NotFoundComponent } from './main/not-found/not-found/not-found.component';
 
 // Services
 import { UserSessionService } from './services/user-session.service';
@@ -43,6 +44,7 @@ import { AuthGuard } from './services/auth-guard.service';
     MessagesListComponent,
     TeacherScheduleComponent,
     ParentScheduleComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
