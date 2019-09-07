@@ -10,8 +10,8 @@ export class MessageDataService {
     getMessages(){
         let token = this.auth.getToken();
         let id = this.auth.getUserId;
-        let header = new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token': `${token}`, 'ID': `${id}`});
-        return this.http.get('http://127.0.0.1:3000/klasy', { headers: header});
+        let header = new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token': `${token}`, 'ID_NADAWCY': `${id}`});
+        return this.http.get('http://127.0.0.1:3000/wiadomosci', { headers: header});
     }
 
     // postClass(body){

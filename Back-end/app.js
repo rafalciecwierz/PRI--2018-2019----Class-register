@@ -73,6 +73,9 @@ const {wyswietlRozmowcow, dodajRozmowce} = require('./routes/rozmowcy');
 app.get('/rozmowcy', auth, wyswietlRozmowcow);
 app.post('/rozmowcy', [auth,auth_sekr], dodajRozmowce);
 
+const {wiadomosciPoID} = require('./routes/wiadomosci');
+app.get('/wiadomosci', wiadomosciPoID);
+
 const {logowanie} = require('./routes/logowanie');
 app.post('/logowanie',logowanie);
 

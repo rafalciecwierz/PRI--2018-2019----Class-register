@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageDataService } from 'src/app/services/message-data.service';
 
 @Component({
   selector: 'app-messages-list',
@@ -39,9 +40,18 @@ export class MessagesListComponent implements OnInit {
       text: 'Dziękuje za dokładne wyjaśnienie tematu, dziękuje i pozdrawiam!...'
     },
   ]
-  constructor() { }
+  constructor(private dataService: MessageDataService) { }
 
   ngOnInit() {
+    this.dataService.getMessages().subscribe(
+      (resp: Object) => {
+        console.log(resp);
+        
+      },
+      (error) =>  {
+        console.log(error.statusText);
+      }
+    );
   }
 
 }
